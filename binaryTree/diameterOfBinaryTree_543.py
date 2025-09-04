@@ -18,15 +18,19 @@
 
 
 class Solution:
+    """
+    单个节点的直径等于左子树的深度 + 右子树的深度
+    """
     def __init__(self):
         self.res = 0
 
     def traverse(self, node):
+        # 计算并返回节点的最大深度
         if not node:
             return 0
 
-        left_max = self.traverse(node.left)
-        right_max = self.traverse(node.right)
+        left_max = self.traverse(node.left)  # 左子树的最大深度
+        right_max = self.traverse(node.right)  # 右子树的最大深度
 
         # 后序位置，顺便计算最大直径
         myDiameter = left_max + right_max
