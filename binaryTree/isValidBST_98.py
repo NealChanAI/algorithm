@@ -20,8 +20,20 @@
 
 
 class Solution:
-    def _is_valid_bst(self, root):
+    def _is_valid_bst(self, root, min_val, max_val):
+        if not root:
+            return True
 
+        if min_val and root.val <= min_val:
+            return False
+
+        if max_val and root.val >= max_val:
+            return False
+
+        return self._is_valid_bst(root.left, min_val, root.val) and self._is_valid_bst(root.right, root.val, max_val)
 
     def is_valid_BST(self, root):
-        pass
+        if not root:
+            return True
+
+        return self._is_valid_bst(root, None, None)
