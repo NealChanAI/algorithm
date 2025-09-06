@@ -1,30 +1,46 @@
 # -*- coding: utf-8 -*-
 # ===============================================================
 #
-#    @Create Author :
-#    @Create Time   : 2024/7/1 14:50
-#    @Description   : 
+#    @Create Author : 
+#    @Create Time   : 2025-09-05 10:33
+#    @Description   : #102
 #
 # ===============================================================
 
 
+"""
+给你二叉树的根节点 root ，返回其节点值的 层序遍历 。 （即逐层地，从左到右访问所有节点）。
+"""
+
+
 from collections import deque
+
 
 class Solution:
     def levelOrder(self, root):
+        """层序遍历"""
+        if not root:
+            return []
+
+        res = []
         q = deque()
         q.append(root)
-        res = []
 
         while q:
-            tmp_res = []
             sz = len(q)
-            for i in range(sz):
+            tmp = []
+            for i in len(sz):
                 node = q.popleft()
-                tmp_res.append(node.val)
+                tmp.append(node)
+
                 if node.left:
                     q.append(node.left)
                 if node.right:
                     q.append(node.right)
-            res.append(tmp_res)
+            res.append(tmp)
         return res
+
+
+
+
+

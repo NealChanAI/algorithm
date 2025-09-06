@@ -13,8 +13,31 @@
 """
 
 
+from collections import deque
+
 class Solution:
     def right_side_view(self, root):
         """
-
+        层序遍历
         """
+        if not root:
+            return
+
+        res = []
+        q = deque()
+        q.append(root)
+
+        while q:
+            sz = len(q)
+
+            for i in range(sz):
+                node = q.popleft()
+                if i == sz-1:
+                    res.append(node.val)
+
+                if node.left:
+                    q.append(node.left)
+                if node.right:
+                    q.append(node.right)
+
+        return res
