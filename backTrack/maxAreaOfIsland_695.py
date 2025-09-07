@@ -20,4 +20,31 @@
 
 
 class Solution:
-    def max_area_of_island(self, ):
+    def max_area_of_island(self, grid):
+        """
+        dfs
+        """
+        if not grid:
+            return
+
+        m, n = len(grid), len(grid[0])
+        res = 0
+
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] == '1':
+                    res = max(res, self._helper(grid, i, j))
+
+        return res
+
+    def _helper(self, grid, i, j):
+        m, n = len(grid), len(grid[0])
+        if i < 0 or i >= m or j < 0 or j >= n:
+            return 0
+        if grid[i][j] == '0':
+            return 0
+
+        grid[i][j] == '0'
+
+        return 1 + self._helper(grid, i+1, j) + self._helper(grid, i-1, j) + \
+            self._helper(grid, i, j-1) + self._helper(grid, i, j+1)

@@ -2,17 +2,10 @@
 # ===============================================================
 #
 #    @Create Author : 
-#    @Create Time   : 2025-09-05 17:18
-#    @Description   : #200
+#    @Create Time   : 2025/9/7 17:39
+#    @Description   : 
 #
 # ===============================================================
-
-
-"""
-输入一个二维数组 grid，其中只包含 0 或者 1，0 代表海水，1 代表陆地，且假设该矩阵四周都是被海水包围着的。
-
-我们说连成片的陆地形成岛屿，那么请你写一个算法，计算这个矩阵 grid 中岛屿的个数
-"""
 
 
 class Solution:
@@ -20,33 +13,33 @@ class Solution:
         """
 
         """
+        # 非空判断
         if not grid:
             return
 
-        res = 0
         m = len(grid)
         n = len(grid[0])
+        res = 0
 
         for i in range(m):
             for j in range(n):
-
                 if grid[i][j] == '1':
-                    res +=1
+                    res += 1
+                    self._helper(grid, i, j)
 
-                    self.num_islands_helper(grid, i, j, m, n)
+        return res
 
 
-    def num_islands_helper(self, grid, i, j, m, n):
-        # base case
-
-        if i < 0 or j < 0 or i >= m or j >= n:
+    def _helper(self, grid, i, j):
+        m = len(grid)
+        n = len(grid[0])
+        if i < 0 or i >= m or j < 0  or j >= n:
             return
         if grid[i][j] == '0':
             return
 
-        grid[i][j] = '0'
-
-        self.num_islands_helper(grid, i - 1, j, m, n)
-        self.num_islands_helper(grid, i + 1, j, m, n)
-        self.num_islands_helper(grid, i, j - 1, m, n)
-        self.num_islands_helper(grid, i, j + 1, m, n)
+        grid[i][j] == '0'
+        self._helper(grid, i - 1, j)
+        self._helper(grid, i, j - 1)
+        self._helper(grid, i + 1, j)
+        self._helper(grid, i, j + 1)
