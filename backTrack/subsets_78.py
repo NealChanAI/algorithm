@@ -19,7 +19,8 @@ class Solution:
         self.path = []
 
     def subsets(self, nums):
-        pass
+        self.backTrack(nums, 0)
+        return self.res
 
     def backTrack(self, nums, start):
         self.res.append(self.path.copy())

@@ -32,7 +32,7 @@ class Solution:
         self.path += str(root.val)
 
         # 若为叶子节点
-        if not root.left and root.right:
+        if not root.left and not root.right:
             self.res += int(self.path)
 
         self.traverse(root.left)
