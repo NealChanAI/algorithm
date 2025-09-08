@@ -24,11 +24,13 @@ class Solution:
             elif _sum < target:
                 left += 1
             elif _sum == target:
-                res.append([left, right])
+                res.append([nums[left], nums[right]])
                 while left < right and nums[left] == nums[left+1]:
                     left += 1
+                left += 1
                 while left < right and nums[right] == nums[right-1]:
                     right -= 1
+                right -= 1
         return res
 
     def three_sum(self, nums):
@@ -51,6 +53,16 @@ class Solution:
 
             two_sum_res = self.two_sum(nums, i+1, len(nums)-1, -nums[i])
             if two_sum_res:
-                res.append([i, two_sum_res[0], two_sum_res[1]])
+                for s, e in two_sum_res:
+                    res.append([nums[i], s, e])
 
-        return
+        return res
+
+
+if __name__ == '__main__':
+    # nums = [-1,0,1,2,-1,-4]
+    # 输出：[[-1,-1,2],[-1,0,1]]
+    _nums = [-1,0,1,2,-1,-4]
+    a = Solution()
+    res = a.three_sum(_nums)
+    print(res)

@@ -2,8 +2,8 @@
 # ===============================================================
 #
 #    @Create Author : 
-#    @Create Time   : 2025-09-05 16:12
-#    @Description   : #46
+#    @Create Time   : 2025-09-08 14:07
+#    @Description   : 
 #
 # ===============================================================
 
@@ -21,33 +21,24 @@ class Solution:
 
     def permute(self, nums):
         if not nums:
-            return []
+            return
 
         self.used = [False] * len(nums)
 
-        def back_track(nums):
+        def _helper(nums):
             # 更新结果
             if len(self.path) == len(nums):
-                self.res.append(self.path.copy())
-                return
+                self.res.append(self.path.copy)
 
             for i in range(len(nums)):
-                # 排除不合法的选择
                 if self.used[i]:
                     continue
 
-                self.used[i] = True
                 self.path.append(nums[i])
-
-                back_track(nums)
-
-                self.used[i] = False
+                nums[i] = True
+                _helper(nums)
                 self.path.pop()
+                nums[i] = False
 
-        back_track(nums)
-
+        _helper(nums)
         return self.res
-
-
-
-
