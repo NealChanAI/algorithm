@@ -21,14 +21,14 @@ class Solution:
     def __init__(self):
         self.res = None
 
-    def find_kth_largest(self, nums, k):
+    def findKthLargest(self, nums, k):
         """
         快速排序
         """
         if not nums:
             return
 
-        def find_kth_largest_helper(nums, start, end):
+        def findKthLargest_helper(nums, start, end):
             if start > end:
                 return
 
@@ -36,13 +36,13 @@ class Solution:
             pivot = nums[low]
 
             while low < high:
-                while low < high and nums[low] <= pivot:
-                    low += 1
-                nums[high] = nums[low]
-
                 while low < high and nums[high] > pivot:
                     high -= 1
                 nums[low] = nums[high]
+
+                while low < high and nums[low] <= pivot:
+                    low += 1
+                nums[high] = nums[low]
 
             nums[low] = pivot
 
@@ -50,10 +50,10 @@ class Solution:
                 self.res = pivot
                 return
             elif low < len(nums) - k:
-                find_kth_largest_helper(nums, low+1, end)
+                findKthLargest_helper(nums, low+1, end)
             else:
-                find_kth_largest_helper(nums, start, low)
+                findKthLargest_helper(nums, start, low-1)
 
-        find_kth_largest_helper(nums, 0, len(nums)-1)
+        findKthLargest_helper(nums, 0, len(nums)-1)
 
         return self.res

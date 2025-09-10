@@ -33,7 +33,7 @@ class Solution:
                 right -= 1
         return res
 
-    def three_sum(self, nums):
+    def threeSum(self, nums):
         """
         1. 非空判断
         2. 转换为two sum问题

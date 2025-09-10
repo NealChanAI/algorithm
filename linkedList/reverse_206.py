@@ -8,6 +8,11 @@
 # ===============================================================
 
 
+"""
+给你单链表的头节点 head ，请你反转链表，并返回反转后的链表。
+"""
+
+
 class ListNode:
     def __init__(self, val):
         self.val = val
@@ -15,7 +20,7 @@ class ListNode:
 
 
 class Solution:
-    def reverse(self, head):
+    def reverseList(self, head):
         """
         double pointers
         """

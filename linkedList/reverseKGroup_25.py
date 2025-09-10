@@ -23,7 +23,6 @@ class ListNode:
         self.next = None
 
 
-
 class Solution:
     def reverse_top_n(self, node_a, node_b):
         """
@@ -41,7 +40,7 @@ class Solution:
 
         return cur
 
-    def reverse_k_group(self, head, k):
+    def reverseKGroup(self, head, k):
         """
         递归思路
         """
@@ -55,7 +54,7 @@ class Solution:
             p2 = p2.next
 
         new_head = self.reverse_top_n(head, p2)
-        p1.next = self.reverse_k_group(p2, k)
+        p1.next = self.reverseKGroup(p2, k)
 
         return new_head
 

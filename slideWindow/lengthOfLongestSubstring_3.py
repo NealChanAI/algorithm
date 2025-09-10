@@ -14,13 +14,13 @@
 
 
 class Solution:
-    def length_of_longest_substring(self, s):
+    def lengthOfLongestSubstring(self, s):
         """
         1. 非空判断
         2. sliding windows
         """
         if not s:
-            return
+            return 0
 
         window = {}
         res = 0
