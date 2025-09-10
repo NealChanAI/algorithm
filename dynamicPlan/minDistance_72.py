@@ -21,27 +21,41 @@
 
 class Solution:
     def minDistance(self, s1, s2):
-        if not s1 or not s2:
-            return
+        """
+        1. 非空判断
+        2. memo备忘录
+        """
+        if not s1 and not s2:
+            return 0
 
         m, n = len(s1), len(s2)
-        return self.dp(s1, s2, m-1, n-1)
+        memo = [[-1] * n for _ in range(m)]
 
-    def dp(self, s1, s2, i, j):
-        if i <= -1:
-            return j + 1
-        if j <= -1:
-            return i + 1
-        if s1[i] == s2[j]:
-            return self.dp(s1, s2, i-1, j-1)
+        def dp(i, j):
+            if i < 0:
+                return j + 1
+            if j < 0:
+                return i + 1
 
-        return 1 + min(
-            self.dp(s1, s2, i-1, j),
-            self.dp(s1, s2, i-1, j-1),
-            self.dp(s1, s2, i, j-1)
-        )
+            if memo[i][j] != -1:
+                return memo[i][j]
+
+            if s1[i] == s2[j]:
+                memo[i][j] = dp(i-1, j-1)
+            else:
+                memo[i][j] = 1 + min(
+                    dp(i-1, j),
+                    dp(i, j-1),
+                    dp(i-1, j-1)
+                )
+
+            return memo[i][j]
+
+        return dp(m-1, n-1)
+
 
 if __name__ == '__main__':
     s1 = "dinitrophenylhydrazine"
     s2 = "benzalphenylhydrazone"
-    Solution().minDistance(s1, s2)
+    res = Solution().minDistance(s1, s2)
+    print(res)
