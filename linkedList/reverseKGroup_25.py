@@ -28,7 +28,7 @@ class Solution:
         """
         反转前N个节点
         """
-        if not node_a or not node_b:
+        if not node_a and not node_b:
             return node_a
 
         pre, cur = None, node_a
@@ -38,7 +38,7 @@ class Solution:
             pre = cur
             cur = next
 
-        return cur
+        return pre
 
     def reverseKGroup(self, head, k):
         """
@@ -57,6 +57,32 @@ class Solution:
         p1.next = self.reverseKGroup(p2, k)
 
         return new_head
+
+
+if __name__ == '__main__':
+    lst = [1, 2, 3, 4, 5]
+    lst = [1, 2]
+    head = ListNode(lst[0])
+    node = head
+    for i in range(1, len(lst)):
+        node.next = ListNode(lst[i])
+        node = node.next
+    node.next = None
+
+    linked_lst = []
+    p = head
+    while p:
+        linked_lst.append(p.val)
+        p = p.next
+    print(linked_lst)
+
+    res = Solution().reverseKGroup(head, 2)
+    res_lst = []
+    while res:
+        res_lst.append(res.val)
+        res = res.next
+    print(res_lst)
+
 
 
 
