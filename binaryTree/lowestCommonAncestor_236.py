@@ -28,7 +28,7 @@ class Solution:
 
         return left if left else right
 
-    def lowest_common_ancestor(self, root, p, q):
+    def lowestCommonAncestor(self, root, p, q):
         if not root:
             return
 

@@ -20,7 +20,7 @@
 
 
 class Solution:
-    def is_valid(self, s):
+    def isValid(self, s):
         """
         栈
         """

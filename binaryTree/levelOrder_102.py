@@ -29,9 +29,9 @@ class Solution:
         while q:
             sz = len(q)
             tmp = []
-            for i in len(sz):
+            for i in range(sz):
                 node = q.popleft()
-                tmp.append(node)
+                tmp.append(node.val)
 
                 if node.left:
                     q.append(node.left)

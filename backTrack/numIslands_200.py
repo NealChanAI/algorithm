@@ -9,7 +9,7 @@
 
 
 class Solution:
-    def num_islands(self, grid):
+    def numIslands(self, grid):
         """
 
         """
@@ -38,8 +38,19 @@ class Solution:
         if grid[i][j] == '0':
             return
 
-        grid[i][j] == '0'
+        grid[i][j] = '0'
         self._helper(grid, i - 1, j)
         self._helper(grid, i, j - 1)
         self._helper(grid, i + 1, j)
         self._helper(grid, i, j + 1)
+        return
+
+
+if __name__ == '__main__':
+    grid = [
+  ['1','1','1','1','0'],
+  ['1','1','0','1','0'],
+  ['1','1','0','0','0'],
+  ['0','0','0','0','0']
+]
+    print(Solution().numIslands(grid))
