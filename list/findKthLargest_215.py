@@ -63,4 +63,4 @@ if __name__ == '__main__':
     nums = [3,2,1,5,6,4]
     # nums = [-1,2,0]
     k = 2
-    print(Solution().find_kth_largest(nums, 2))
+    print(Solution().findKthLargest(nums, 2))
