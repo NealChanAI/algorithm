@@ -14,7 +14,7 @@
 
 
 class Solution:
-    def max_sub_array(self, nums):
+    def maxSubArray(self, nums):
         if not nums:
             return
         dp = [nums[0]] * len(nums)

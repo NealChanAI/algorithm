@@ -31,34 +31,41 @@ class TreeNode:
 
 
 class Solution:
-    def construct(self, pre_order, pre_start, pre_end, in_order, in_start, in_end):
-        if pre_start > pre_end or in_start > in_end:
+    def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
+        """
+        递归构造：
+            1. 前序的第一个结点为头结点
+            2. 在中序列表中找到头节点的位置，则左边为左子树的列表，右边为右子树
+
+        :param preorder:
+        :param inorder:
+        :return:
+        """
+        if not preorder or not inorder:
             return
 
-        root_val = pre_order[pre_start]
-        root = TreeNode(root_val)
+        def _builder(pre_order, pre_start, pre_end, in_order, in_start, in_end):
+            """"""
+            # base case
+            if pre_start > pre_end:
+                return
+            # 头结点位置
+            head = pre_order[pre_start]
+            # 在中序列表中找到head结点的位置
+            head_idx = 0
+            for i in range(in_start, in_end + 1):
+                if in_order[i] == head:
+                    head_idx = i
+                    break
 
-        idx = -1
-        for i in range(in_start, in_end+1):
-            if in_order[i] == root_val:
-                idx = i
-                break
+            root = TreeNode(head)
+            root.left = _builder(pre_order, pre_start+1, pre_start+(head_idx-in_start), in_order, in_start, head_idx-1)
+            root.right = _builder(pre_order, pre_start+(head_idx-in_start)+1, pre_end, in_order, head_idx+1, in_end)
 
-        left = self.construct(pre_order, pre_start+1, pre_start+idx-in_start, in_order, in_start, idx-1)
-        right = self.construct(pre_order, pre_start+idx-in_start+1, pre_end, in_order, idx+1, in_end)
+            return root
 
-        root.left = left
-        root.right = right
+        return _builder(preorder, 0, len(preorder)-1, inorder, 0, len(inorder)-1)
 
-        return root
-
-    def build_tree(self, preorder, inorder):
-        """
-        递归
-        """
-
-        root = self.construct(preorder, 0, len(preorder)-1, inorder, 0, len(inorder)-1)
-        return root
 
 
 
