@@ -36,13 +36,13 @@ class Solution:
             pivot = nums[low]
 
             while low < high:
-                while low < high and nums[low] <= pivot:
+                while low < high and nums[high] >= pivot:
+                    high -= 1
+                nums[low] = nums[high]
+                while low < high and nums[low] < pivot:
                     low += 1
                 nums[high] = nums[low]
 
-                while low < high and nums[high] > pivot:
-                    high -= 1
-                nums[low] = nums[high]
 
             nums[low] = pivot
 
@@ -52,8 +52,15 @@ class Solution:
             elif low < len(nums) - k:
                 find_kth_largest_helper(nums, low+1, end)
             else:
-                find_kth_largest_helper(nums, start, low)
+                find_kth_largest_helper(nums, start, low-1)
 
         find_kth_largest_helper(nums, 0, len(nums)-1)
 
         return self.res
+
+
+if __name__ == '__main__':
+    nums = [3,2,1,5,6,4]
+    # nums = [-1,2,0]
+    k = 2
+    print(Solution().find_kth_largest(nums, 2))
