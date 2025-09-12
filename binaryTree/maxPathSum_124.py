@@ -23,14 +23,14 @@ class Solution:
     def one_side_sum(self, root):
         if not root:
             return 0
-        left_side_sum_max = max(0, root.left)
-        right_side_sum_max = max(0, root.right)
+        left_side_sum_max = max(0, self.one_side_sum(root.left))
+        right_side_sum_max = max(0, self.one_side_sum(root.right))
 
         res = root.val + left_side_sum_max + right_side_sum_max
         self.res = max(self.res, res)
         return res + max(left_side_sum_max, right_side_sum_max)
 
-    def max_path_sum(self, root):
+    def maxPathSum(self, root):
         """
         子问题拆解:
             对于每个节点, 计算左子树的最大和右子树的最大和, 然后三者相加, 注意子树的最大和为max(0, one_side_sum)

@@ -20,7 +20,7 @@ class ListNode:
         self.next = None
 
 class Solution:
-    def delete_duplicates(self, head):
+    def deleteDuplicates(self, head):
         """
         1. 非空判断
         2. fast/slow pointers

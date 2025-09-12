@@ -14,7 +14,7 @@
 
 
 class Solution:
-    def spiral_order(self, matrix):
+    def spiralOrder(self, matrix):
         """
         维护四个边界
         """

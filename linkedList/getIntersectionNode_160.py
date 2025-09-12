@@ -14,7 +14,7 @@ class ListNode:
         self.next = None
 
 class Solution:
-    def get_intersection_node(self, headA, headB):
+    def getIntersectionNode(self, headA, headB):
         """
         1. 非空判断
         2. 双指针

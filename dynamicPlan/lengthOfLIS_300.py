@@ -16,7 +16,7 @@
 
 
 class Solution:
-    def length_of_lis(self, nums):
+    def lengthOfLIS(self, nums):
         """
         子问题定义：以数组[i]为结尾的最长子序列
         """

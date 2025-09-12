@@ -8,13 +8,17 @@
 # ===============================================================
 
 
+"""
+给你一个链表，删除链表的倒数第 n 个结点，并且返回链表的头结点。
+"""
+
 class ListNode:
     def __init__(self, val):
         self.val = val
 
 
 class Solution:
-    def remove_nth_from_end(self, head, n):
+    def removeNthFromEnd(self, head, n):
         """
         double pointers
         """
