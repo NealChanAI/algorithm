@@ -41,7 +41,7 @@ class Solution:
         self.sum -= root.val
         self.path.pop()
 
-    def path_sum(self, root, target):
+    def pathSum(self, root, target):
         if not root:
             return self.res
 

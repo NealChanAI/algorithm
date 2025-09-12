@@ -24,7 +24,7 @@ class Solution:
     def __init__(self):
         self.res = 0
 
-    def width_of_binary_tree(self, root):
+    def widthOfBinaryTree(self, root):
         """
         层序遍历
         """

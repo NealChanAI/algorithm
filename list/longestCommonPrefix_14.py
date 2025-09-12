@@ -16,7 +16,7 @@
 
 
 class Solution:
-    def longest_common_prefix(self, strs):
+    def longestCommonPrefix(self, strs):
         """
         多指针，以第一个字符为基准
         """

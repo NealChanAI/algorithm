@@ -16,7 +16,7 @@
 
 
 class Solution:
-    def majority_element(self, nums):
+    def majorityElement(self, nums):
         """多数元素"""
         cnt = dict()
 

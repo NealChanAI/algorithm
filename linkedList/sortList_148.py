@@ -13,15 +13,20 @@
 """
 
 
+class ListNode:
+    def __init__(self, val):
+        self.val = val
+        self.next = None
+
 class Solution:
     def sortList(self, head):
         """
-                递归子函数：
-                    1. 返回已经排好序的链表，然后将头节点插入到已排好序的链表中
-                    2. base case：null或只有一个节点，就不需要排序了
-                :param head:
-                :return:
-                """
+        递归子函数：
+            1. 返回已经排好序的链表，然后将头节点插入到已排好序的链表中
+            2. base case：null或只有一个节点，就不需要排序了
+        :param head:
+        :return:
+        """
 
         def sort_list_helper(head):
             # base case

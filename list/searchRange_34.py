@@ -37,17 +37,17 @@ class Solution:
         分别计算左边界和右边界
         """
         if not nums:
-            return
+            return [-1, -1]
 
         return [self.left_bound(nums, target), self.right_bound(nums, target)]
 
     def left_bound(self, nums, target):
         if not nums:
-            return
+            return -1
 
-        left, right = 0, len(nums)-1
+        left, right = 0, len(nums) - 1
         while left <= right:
-            mid = left + (right-left) // 2
+            mid = left + (right - left) // 2
             if nums[mid] > target:
                 right = mid - 1
             elif nums[mid] < target:
@@ -62,11 +62,11 @@ class Solution:
 
     def right_bound(self, nums, target):
         if not nums:
-            return
+            return -1
 
-        left, right = 0, len(nums)-1
+        left, right = 0, len(nums) - 1
         while left <= right:
-            mid = left + (right-left) // 2
+            mid = left + (right - left) // 2
             if nums[mid] > target:
                 right = mid - 1
             elif nums[mid] < target:

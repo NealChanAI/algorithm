@@ -34,7 +34,7 @@ class Solution:
 
         return 1 + max(left_max, right_max)
 
-    def is_balanced(self, root):
+    def isBalanced(self, root):
         """
         判断左右子树的深度相差是否大于1
         """

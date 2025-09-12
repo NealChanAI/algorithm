@@ -39,7 +39,7 @@ class Solution:
         # 离开节点
         self.sum -= root.val
 
-    def has_path_sum(self, root, target):
+    def hasPathSum(self, root, target):
         """
         遍历
         """

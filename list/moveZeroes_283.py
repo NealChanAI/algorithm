@@ -9,7 +9,7 @@
 
 
 class Solution:
-    def move_zeros(self, nums):
+    def moveZeroes(self, nums):
         """
         1. 非空判断
         2. 快慢指针

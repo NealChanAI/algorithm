@@ -25,7 +25,7 @@ class Solution:
         self.traverse(node.left)
         self.traverse(node.right)
 
-    def preorder_traversal(self, root):
+    def preorderTraversal(self, root):
         self.traverse(root)
 
         return self.res

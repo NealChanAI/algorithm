@@ -17,10 +17,12 @@ class Solution:
     def __init__(self):
         self.res = []
 
-    def inorder_traversal(self, root):
+    def inorderTraversal(self, root):
         if not root:
-            return
+            return self.res
 
-        self.inorder_traversal(root.left)
+        self.inorderTraversal(root.left)
         self.res.append(root.val)
-        self.inorder_traversal(root.right)
+        self.inorderTraversal(root.right)
+
+        return self.res

@@ -32,7 +32,7 @@ class Solution:
 
         return self._is_valid_bst(root.left, min_val, root.val) and self._is_valid_bst(root.right, root.val, max_val)
 
-    def is_valid_BST(self, root):
+    def isValidBST(self, root):
         if not root:
             return True
 

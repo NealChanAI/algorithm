@@ -38,7 +38,7 @@ class Solution:
 
         return 1 + max(left_max, right_max)
 
-    def diameter_of_binary_tree(self, root):
+    def diameterOfBinaryTree(self, root):
         """
         左子数的最大深度 + 右子树的最大深度
         """

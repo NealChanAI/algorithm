@@ -38,8 +38,8 @@ class Solution:
         self.traverse(root.left)
         self.traverse(root.right)
 
-        self.path.pop()
+        self.path = self.path[:-1]
 
-    def sum_numbers(self, root):
+    def sumNumbers(self, root):
         self.traverse(root)
         return self.res

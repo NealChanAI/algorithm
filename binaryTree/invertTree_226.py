@@ -14,15 +14,15 @@
 
 
 class Solution:
-    def invert_tree(self, root):
+    def invertTree(self, root):
         """
         子函数定义: 翻转二叉树
         """
         if not root:
             return
 
-        left = self.invert_tree(root.left)
-        right = self.invert_tree(root.right)
+        left = self.invertTree(root.left)
+        right = self.invertTree(root.right)
 
         root.left = right
         root.right = left

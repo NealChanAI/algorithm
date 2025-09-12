@@ -20,7 +20,7 @@ class Solution:
         self.path = []
         self.target_sum = 0
 
-    def combination_sum(self, nums, target):
+    def combinationSum(self, nums, target):
         if not nums:
             return self.res
 

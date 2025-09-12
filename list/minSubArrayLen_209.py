@@ -16,7 +16,7 @@
 
 
 class Solution:
-    def min_subarray_len(self, target, nums):
+    def minSubArrayLen(self, target, nums):
         """
         sliding window
         """

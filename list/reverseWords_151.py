@@ -20,7 +20,7 @@
 
 
 class Solution:
-    def reverse_words(self, s):
+    def reverseWords(self, s):
         """
 
         """

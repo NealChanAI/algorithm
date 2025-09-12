@@ -15,7 +15,7 @@
 """
 
 class Solution:
-    def subarray_sum(self, nums, k):
+    def subarraySum(self, nums, k):
         """
         1. 前缀和
         2. 字典记录
@@ -45,6 +45,6 @@ if __name__ == '__main__':
     k = 2
 
     nums = [1,2,3]
-    k = 2
-    res = Solution().subarray_sum(nums, k)
+    k = 3
+    res = Solution().subarraySum(nums, k)
     print(res)

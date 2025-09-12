@@ -15,7 +15,7 @@ class ListNode:
 
 
 class Solution:
-    def delete_duplicates(self, head):
+    def deleteDuplicates(self, head):
         """
         1. 非空判断
         2. 快慢指针

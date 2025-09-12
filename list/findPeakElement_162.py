@@ -20,7 +20,7 @@
 
 
 class Solution:
-    def find_peak_element(self, nums):
+    def findPeakElement(self, nums):
         """
         二分法找峰值
         """

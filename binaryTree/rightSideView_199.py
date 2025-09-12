@@ -16,12 +16,12 @@
 from collections import deque
 
 class Solution:
-    def right_side_view(self, root):
+    def rightSideView(self, root):
         """
         层序遍历
         """
         if not root:
-            return
+            return []
 
         res = []
         q = deque()

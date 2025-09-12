@@ -42,15 +42,21 @@ class Solution:
 
         return self.memo[amount]
 
-    def coin_change(self, coins, amount):
+    def coinChange(self, coins, amount):
         """
         dp数组
         memo
         """
         if not coins or not amount:
-            return
+            return 0
 
         self.memo = [-1] * (amount + 1)
 
         return self.dp(coins, amount)
 
+
+if __name__ == '__main__':
+    coins = [186, 419, 83, 408]
+    amount = 6249
+    res = Solution().coinChange(coins, amount)
+    print(res)

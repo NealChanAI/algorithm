@@ -39,7 +39,7 @@ class MonotonicQueue:
 
 
 class Solution:
-    def max_sliding_window(self, nums, k):
+    def maxSlidingWindow(self, nums, k):
         if not nums:
             return
 

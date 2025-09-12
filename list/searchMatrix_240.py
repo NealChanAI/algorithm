@@ -17,7 +17,7 @@
 
 
 class Solution:
-    def search_matrix(self, matrix, target):
+    def searchMatrix(self, matrix, target):
         """
         从右上角开始搜索
         """

@@ -16,7 +16,7 @@
 
 
 class Solution:
-    def climbStair(self, n):
+    def climbStairs(self, n):
         """
         非空判断
         """

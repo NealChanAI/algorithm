@@ -24,7 +24,7 @@ class ListNode:
 
 
 class Solution:
-    def add_two_numbers(self, l1, l2):
+    def addTwoNumbers(self, l1, l2):
         """
         双指针
         使用临时变量存储

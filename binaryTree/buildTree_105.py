@@ -31,7 +31,7 @@ class TreeNode:
 
 
 class Solution:
-    def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
+    def buildTree(self, preorder, inorder):
         """
         递归构造：
             1. 前序的第一个结点为头结点

@@ -21,9 +21,9 @@ class Solution:
             return False
         if left.val != right.val:
             return False
-        return self.is_summetric(left.left, right.right) and self._is_summetric(left.right, right.left)
+        return self._is_summetric(left.left, right.right) and self._is_summetric(left.right, right.left)
 
-    def is_summetric(self, root):
+    def isSymmetric(self, root):
         """
         递归
         """

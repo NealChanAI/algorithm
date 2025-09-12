@@ -13,7 +13,7 @@
 
 
 class Solution:
-    def min_window(self, s, t):
+    def minWindow(self, s, t):
         """
         double pointers
         """
@@ -42,7 +42,7 @@ class Solution:
                 window[c] = 0
             window[c] += 1
 
-            if window[c] == need[c]:
+            if c in need and window[c] == need[c]:
                 valid += 1
 
             # 满足条件
@@ -62,4 +62,8 @@ class Solution:
         return s[start: start+length] if length != float('inf') else ''
 
 
+if __name__ == '__main__':
+    s = "ADOBECODEBANC"
+    t = "ABC"
+    print(Solution().minWindow(s, t))
 

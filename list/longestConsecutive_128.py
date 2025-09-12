@@ -16,9 +16,9 @@
 
 
 class Solution:
-    def longest_consecutive(self, nums):
+    def longestConsecutive(self, nums):
         if not nums:
-            return
+            return 0
 
         set_nums = set(nums)
         res = 0
