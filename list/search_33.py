@@ -29,14 +29,12 @@ class Solution:
             return
 
         left, right = 0, len(nums)-1
-        left_start = nums[0]
-        right_end = nums[-1]
 
         while left <= right:
             mid = left + (right-left) // 2
             if nums[mid] == target:
                 return mid
-            if nums[mid] >= left_start:  # 在左半段找
+            if nums[mid] >= nums[left]:  # 在左半段找
                 if nums[mid] > target and target >= nums[left]:
                     right = mid - 1
                 else:
@@ -51,4 +49,27 @@ class Solution:
 
 
 if __name__ == '__main__':
-    Solution
+    """
+    输入：nums = [4,5,6,7,0,1,2], target = 0
+    输出：4
+    示例 2：
+    
+    输入：nums = [4,5,6,7,0,1,2], target = 3
+    输出：-1
+    示例 3：
+    
+    输入：nums = [1], target = 0
+    输出：-1
+    """
+    # nums = [4,5,6,7,0,1,2]
+    # target = 0
+
+    nums = [4, 5, 6, 7, 0, 1, 2]
+    target = 3
+
+    nums = [1]
+    target = 0
+
+
+    res = Solution().serach(nums, target)
+    print(res)
