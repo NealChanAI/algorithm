@@ -16,26 +16,25 @@
 
 class Solution:
     def subarraySum(self, nums, k):
-        """
-        1. 前缀和
-        2. 字典记录
-        """
-        if not nums:
-            return
-
-        pre_sum = [0] * (len(nums)+1)
-        count = {0:1}
+        """前缀和"""
+        pre_sum = [0] * len(nums)
+        cnt = dict()
         res = 0
+        cnt[0] = 1
 
-        for i, n in enumerate(nums):
-            pre_sum[i+1] = nums[i] + pre_sum[i]
-            if pre_sum[i+1] not in count:
-                count[pre_sum[i+1]] = 0
-            count[pre_sum[i + 1]] += 1
+        for i in range(0, len(nums)):
+            if i == 0:
+                pre_sum[i] = nums[i]
+            else:
+                pre_sum[i] = nums[i] + pre_sum[i - 1]
 
-            target = k - pre_sum[i+1]
-            if target in count:
-                res += count[target]
+            need = pre_sum[i] - k
+            if need in cnt:
+                res += cnt[need]
+
+            if pre_sum[i] not in cnt:
+                cnt[pre_sum[i]] = 0
+            cnt[pre_sum[i]] += 1
 
         return res
 
