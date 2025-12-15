@@ -74,7 +74,7 @@ class Solution:
         if not lists:
             return
 
-            # 定义ListNode的大小比较方式
+        # 定义ListNode的大小比较方式
         ListNode.__lt__ = lambda a, b: a.val < b.val
 
         pq = []
