@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # -*- coding: utf-8 -*-
 # ===============================================================
 #
@@ -8,6 +9,8 @@
 # ===============================================================
 
 
+=======
+>>>>>>> d2053207d3a0f2b7f2667d4f81d4c9e543b5ee0d
 """
 给定两个字符串 text1 和 text2，返回这两个字符串的最长 公共子序列 的长度。如果不存在 公共子序列 ，返回 0 。
 
@@ -34,12 +37,38 @@
 
 
 class Solution:
+    def __init__(self):
+        self.memo = []
+
     def longestCommonSubsequence(self, text1, text2):
         """
         dp
         memo
         """
-
-        if not text1 and not text2:
+        if not text1 or not text2:
             return 0
 
+        m, n = len(text1), len(text2)
+        self.memo = [[-1] * n for i in range(m)]
+
+        return self.dp(text1, text2, 0, 0)
+
+    def dp(self, text1, text2, i, j):
+        """dp"""
+        if i >= len(text1) or j >= len(text2):
+            return 0
+
+        if self.memo[i][j] != -1:
+            return self.memo[i][j]
+
+        if text1[i] == text2[j]:
+            self.memo[i][j] = 1 + self.dp(text1, text2, i + 1, j + 1)
+            return self.memo[i][j]
+
+        self.memo[i][j] = max(
+            self.dp(text1, text2, i + 1, j),
+            self.dp(text1, text2, i, j + 1),
+            self.dp(text1, text2, i + 1, j + 1)
+        )
+
+        return self.memo[i][j]
