@@ -21,4 +21,36 @@
 
 class Solution:
     def maxAreaOfIsland(self, grid):
+        """dfs"""
+        if not grid:
+            return 0
+
+        m, n = len(grid), len(grid[0])
+        res = 0
+
+        # 遍历网格
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] == 1:
+                    _res = self.dfs(grid, i, j)
+                    res = max(res, _res)
+
+        return res
+
+    def dfs(self, grid, i, j):
+        m, n = len(grid), len(grid[0])
+        # 边界条件
+        if i < 0 or i >= m or j < 0 or j >= n:
+            return 0
+
+        if grid[i][j] == 0:
+            return 0
+
+        grid[i][j] = 0
+        _res = 1 + self.dfs(grid, i + 1, j) + self.dfs(grid, i - 1, j) + self.dfs(grid, i, j - 1) + self.dfs(grid, i, j + 1)
+        return _res
+
+
+
+
 
