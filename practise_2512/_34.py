@@ -55,11 +55,10 @@ class Solution:
             else:
                 r = mid - 1
 
-        if r < 0 or nums[l] != target:
+        if l >= len(nums) or nums[l] != target:
             return -1
 
         return l
-
 
     def right_bound(self, nums, target):
         """搜索右边界"""
@@ -73,7 +72,7 @@ class Solution:
             else:
                 l = mid + 1
 
-        if l >= len(nums) or nums[r] != target:
+        if r < 0 or nums[r] != target:
             return -1
 
         return r
@@ -83,8 +82,11 @@ if __name__ == '__main__':
     nums = [5, 7, 7, 8, 8, 10]
     target = 8
 
-    nums = [5, 7, 7, 8, 8, 10]
+    # nums = [5, 7, 7, 8, 8, 10]
     # target = 6
+
+    # nums = [1]
+    # target = 1
 
     a = Solution()
     res = a.search_range(nums, target)

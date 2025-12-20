@@ -20,7 +20,7 @@ class Solution:
     def preorderTraversal(self, root):
         """递归实现"""
         if not root:
-            return
+            return self.res
 
         self.res.append(root.val)
         self.preorderTraversal(root.left)

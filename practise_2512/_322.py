@@ -23,9 +23,8 @@ class Solution:
         self.memo = []
 
     def coinChange(self, coins, amount):
-        self.memo = [-1] * (amount + 1)
+        self.memo = [-10] * (amount + 1)
         return self.dp(coins, amount)
-
 
     def dp(self, coins, amount):
         """
@@ -37,7 +36,7 @@ class Solution:
         if amount < 0:
             return -1
 
-        if self.memo[amount] != -1:
+        if self.memo[amount] != -10:
             return self.memo[amount]
 
         res = float('inf')
@@ -48,8 +47,15 @@ class Solution:
                 continue
             res = min(_res + 1, res)
 
-        self.memo[amount] = res
+        self.memo[amount] = res if res != float('inf') else -1
 
-        return res
+        return self.memo[amount]
 
 
+if __name__ == '__main__':
+    coins = [186, 419, 83, 408]
+    amount = 6249
+
+    a = Solution()
+    res = a.coinChange(coins, amount)
+    print(res)

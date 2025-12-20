@@ -21,10 +21,13 @@
 
 class Solution:
     def reverseWords(self, s):
-        lst = s.split(' ')
-
-        res = []
-        for i in range(len(lst)-1, -1, -1):
-            res.append(lst[i])
-
-        return res
+        lst = []
+        for word in s.split(' '):
+            if word != '':
+                lst.append(word)
+        i, j = 0, len(lst)-1
+        while i < j:
+            lst[i], lst[j] = lst[j], lst[i]
+            i += 1
+            j -= 1
+        return ' '.join(lst)

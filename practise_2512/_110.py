@@ -33,6 +33,9 @@ class Solution:
         left = self._max_depth(root.left)
         right = self._max_depth(root.right)
 
+        left = left if left else 0
+        right = right if right else 0
+
         if left - right > 1 or right - left > 1:
             self.res = False
             return
