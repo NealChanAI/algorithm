@@ -8,3 +8,27 @@
 
 class Solution:
     def searchMatrix(self, matrix, target):
+        """
+        从右上角开始搜索
+            1. 先从左往右搜索, 找到比target小的数
+            2. 再从上往下搜索, 找到比target大的数
+            3. 往复循环, 直到找到target
+            4. 边界: 超过左边界或下边界
+        """
+        if not matrix:
+            return
+
+        m, n = len(matrix), len(matrix[0])
+
+        i, j = 0, n - 1
+
+        while i >= m or j < 0:
+            if matrix[i][j] == target:
+                return True
+            elif matrix[i][j] > target:
+                j -= 1
+            else:
+                i += 1
+
+        return False
+

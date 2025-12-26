@@ -39,5 +39,8 @@ class AttentionLayer(Layer):
         return value_embed, attention_scores
 
 
+if __name__ == '__main__':
+    pass
+
 
 
