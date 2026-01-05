@@ -36,7 +36,8 @@ class Solution:
     def longestValidParentheses(self, s):
         """
         非空判断
-        dp
+        dp数组定义：
+            dp[i]代表以s[i-1]为结尾的最长有效括号子串的长度
         """
         if not s:
             return 0
