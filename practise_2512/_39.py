@@ -14,7 +14,7 @@ class Solution:
         """
         backTrack
         """
-        self._combination_sum_helper(nums, target)
+        self._combination_sum_helper(nums, 0, target)
         return self.res
 
     def _combination_sum_helper(self, nums, start, target):
@@ -32,3 +32,11 @@ class Solution:
             self._combination_sum_helper(nums, i, target)
             self.sum -= nums[i]
             self.path.pop()
+
+
+if __name__ == '__main__':
+    a = Solution()
+    target = 5
+    candidates = [1, 2, 3]
+
+    print(a.combinationSum(candidates, target))
