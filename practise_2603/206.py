@@ -21,10 +21,10 @@ class ListNode:
 
 class Solution:
     def reverseList(self, head):
-        """三指针"""
-
+        """
+        三指针
+        """
         pre, cur = None, head
-
         while cur:
             nxt = cur.next
             cur.next = pre

@@ -32,4 +32,36 @@ class Solution:
         if not head:
             return head
 
+        dummy = ListNode(-1)
+        dummy.next = head
+        p = dummy
+
+        for _ in range(k):
+            if not p.next:
+                return head
+
+        sub_head = p.next
+        p.next = None
+        self._reverse(head)
+        head.next = self.reverse_k_group(sub_head, k)
+
+        return p
+
+    def _reverse(self, node):
+        """反转链表"""
+
+        if not node:
+            return
+
+        pre, cur = None, node
+        while cur:
+            nxt = cur.next
+            cur.next = pre
+            pre = cur
+            cur = nxt
+
+        return pre
+
+
+
 
